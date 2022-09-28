@@ -7,6 +7,11 @@ from tqdm import trange
 from omegaconf import OmegaConf
 from PIL import Image
 
+# work around issue #165
+import pathlib
+parent_dir = pathlib.Path(__file__).parent.absolute().parent.as_posix()
+sys.path.insert(1, parent_dir)
+
 from ldm.models.diffusion.ddim import DDIMSampler
 from ldm.util import instantiate_from_config
 

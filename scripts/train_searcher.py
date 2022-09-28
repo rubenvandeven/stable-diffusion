@@ -6,6 +6,11 @@ import glob
 from multiprocessing import cpu_count
 from tqdm import tqdm
 
+# work around issue #165
+import pathlib  
+parent_dir = pathlib.Path(__file__).parent.absolute().parent.as_posix()
+sys.path.insert(1, parent_dir)
+
 from ldm.util import parallel_data_prefetch
 
 

@@ -14,6 +14,11 @@ from pytorch_lightning import seed_everything
 from torch import autocast
 from contextlib import contextmanager, nullcontext
 
+# work around issue #165
+import pathlib
+parent_dir = pathlib.Path(__file__).parent.absolute().parent.as_posix()
+sys.path.insert(1, parent_dir)
+
 from ldm.util import instantiate_from_config
 from ldm.models.diffusion.ddim import DDIMSampler
 from ldm.models.diffusion.plms import PLMSSampler

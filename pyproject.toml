@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "latent-diffusion"
+version = "0.0.1"
+description = ""
+authors = ["CompVis"]
+
+[tool.poetry.dependencies]
+python = "3.8.5"
+#cudatoolkit = "11.3"
+torch = "1.11.0"
+torchvision = "0.12.0"
+#torch = { url = "https://download.pytorch.org/whl/torch/" }
+#torchvision = { url = "https://download.pytorch.org/whl/torch/" }
+# TODO 
+# torch = [
+#    { version = "1.6.0", markers = "sys_platform != 'win32'" },
+#    { url = "https://download.pytorch.org/whl/cu102/torch-1.6.0-cp36-cp36m-win_amd64.whl", markers = "python_version ~= '3.6' and sys_platform == 'win32'" },
+#    { url = "https://download.pytorch.org/whl/cu102/torch-1.6.0-cp37-cp37m-win_amd64.whl", markers = "python_version ~= '3.7' and sys_platform == 'win32'" },
+#    { url = "https://download.pytorch.org/whl/cu102/torch-1.6.0-cp38-cp38-win_amd64.whl", markers = "python_version ~= '3.8' and sys_platform == 'win32'" }
+#]
+#torchvision = [
+#    { version = "0.7.0", markers = "sys_platform != 'win32'" },
+#    { url = "https://download.pytorch.org/whl/cu102/torchvision-0.7.0-cp36-cp36m-win_amd64.whl", markers = "python_version ~= '3.6' and sys_platform == 'win32'" },
+#    { url = "https://download.pytorch.org/whl/cu102/torchvision-0.7.0-cp37-cp37m-win_amd64.whl", markers = "python_version ~= '3.7' and sys_platform == 'win32'" },
+#    { url = "https://download.pytorch.org/whl/cu102/torchvision-0.7.0-cp38-cp38-win_amd64.whl", markers = "python_version ~= '3.8' and sys_platform == 'win32'" }
+#]
+numpy = "^1.19.2"
+diffusers = "^0.3.0"
+albumentations = "0.4.3"
+#opencv-python = "4.1.2.30"
+pudb = "2019.2"
+invisible-watermark = "^0.1.5"
+imageio = "2.9.0"
+imageio-ffmpeg = "0.4.2"
+tqdm = "^4.64.1"
+pytorch-lightning = "1.4.2"
+omegaconf = "2.1.1"
+test-tube = "^0.7.5"
+streamlit = "^0.73.1"
+einops = "0.3.0"
+torch-fidelity = "0.3.0"
+transformers = "4.19.2"
+torchmetrics = "0.6.0"
+kornia = "0.6"
+opencv-python = "^4.6.0"
+#taming = { git = "https://github.com/CompVis/taming-transformers.git", subdirectory = "taming" }
+# disable until merge of PR #173 
+#taming-transformers = { git = "https://github.com/CompVis/taming-transformers.git", branch = "master" }
+taming-transformers = { git = "https://github.com/illeatmyhat/taming-transformers", branch = "master" }
+clip = { git = "https://github.com/openai/CLIP.git", branch = "main" }
+ftfy = "^6.1.1"
+regex = "^2022.9.13"
+
+[tool.poetry.dev-dependencies]
+
+[[tool.poetry.source]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cu113"
+default = false
+secondary = false
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -5,6 +5,12 @@ from tqdm import tqdm
 import numpy as np
 import torch
 from main import instantiate_from_config
+
+# work around issue #165
+import pathlib  
+parent_dir = pathlib.Path(__file__).parent.absolute().parent.as_posix()
+sys.path.insert(1, parent_dir)
+
 from ldm.models.diffusion.ddim import DDIMSampler
 
 

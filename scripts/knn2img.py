@@ -13,6 +13,11 @@ import scann
 import time
 from multiprocessing import cpu_count
 
+# work around issue #165
+import pathlib
+parent_dir = pathlib.Path(__file__).parent.absolute().parent.as_posix()
+sys.path.insert(1, parent_dir)
+
 from ldm.util import instantiate_from_config, parallel_data_prefetch
 from ldm.models.diffusion.ddim import DDIMSampler
 from ldm.models.diffusion.plms import PLMSSampler
