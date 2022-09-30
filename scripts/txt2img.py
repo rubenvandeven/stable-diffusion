@@ -201,6 +201,12 @@ def main():
         default=7.5,
         help="unconditional guidance scale: eps = eps(x, empty) + scale * (eps(x, cond) - eps(x, empty))",
     )
+
+    parser.add_argument(
+        "--dyn",
+        type=float,
+        help="dynamic thresholding from Imagen, in latent space (TODO: try in pixel space with intermediate decode)",
+    )
     parser.add_argument(
         "--from-file",
         type=str,
@@ -305,6 +311,7 @@ def main():
                                                          unconditional_guidance_scale=opt.scale,
                                                          unconditional_conditioning=uc,
                                                          eta=opt.ddim_eta,
+                                                         dynamic_threshold=opt.dyn,
                                                          x_T=start_code)
 
                         x_samples_ddim = model.decode_first_stage(samples_ddim)
@@ -342,6 +349,7 @@ def main():
                 toc = time.time()
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
+          f"Sampling took {toc - tic}s, i.e. produced {opt.n_iter * opt.n_samples / (toc - tic):.2f} samples/sec."
           f" \nEnjoy.")
 
 

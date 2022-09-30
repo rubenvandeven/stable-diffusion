@@ -19,6 +19,14 @@ this model uses a frozen CLIP ViT-L/14 text encoder to condition the model on te
 With its 860M UNet and 123M text encoder, the model is relatively lightweight and runs on a GPU with at least 10GB VRAM.
 See [this section](#stable-diffusion-v1) below and the [model card](https://huggingface.co/CompVis/stable-diffusion).
 
+This repository merges [Experiments with Stable Diffusion](https://github.com/justinpinkney/stable-diffusion) by [Justin Pinkney](https://www.justinpinkney.com) ([@Buntworthy](https://twitter.com/Buntworthy)) at [Lambda](https://lambdalabs.com/).
+
+Currently it adds:
+
+- [Fine tuning](#fine-tuning)
+- [Image variations](#image-variations)
+- [Conversion to Huggingface Diffusers](scripts/convert_sd_to_diffusers.py)
+
   
 ## Requirements
 A suitable [conda](https://conda.io/) environment named `ldm` can be created
@@ -189,6 +197,26 @@ Values that approach 1.0 allow for lots of variations but will also produce imag
 
 This procedure can, for example, also be used to upscale samples from the base model.
 
+## Fine tuning
+
+Makes it easy to fine tune Stable Diffusion on your own dataset. For example generating new Pokemon from text:
+
+![](assets/pokemontage.jpg)
+
+> Girl with a pearl earring, Cute Obama creature, Donald Trump, Boris Johnson, Totoro, Hello Kitty
+
+
+For a step by step guide see the [Lambda Labs examples repo](https://github.com/LambdaLabsML/examples).
+
+## Image variations
+
+![](assets/im-vars-thin.jpg)
+
+[![Open Demo](https://img.shields.io/badge/%CE%BB-Open%20Demo-blueviolet)](https://47725.gradio.app/)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JqNbI_kDq_Gth2MIYdsphgNgyGIJxBgB?usp=sharing)
+[![Open in Spaces](https://img.shields.io/badge/%F0%9F%A4%97-Open%20in%20Spaces-orange)]()
+
+For more details on the Image Variation model see the [model card](https://huggingface.co/lambdalabs/stable-diffusion-image-conditioned).
 
 ## Comments 
 

@@ -291,6 +291,7 @@ def main():
                 toc = time.time()
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
+          f"Sampling took {toc - tic}s, i.e., produced {opt.n_iter * opt.n_samples / (toc - tic):.2f} samples/sec."
           f" \nEnjoy.")
 
 
